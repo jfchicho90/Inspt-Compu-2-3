@@ -2,24 +2,24 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #variables y constantes
-v = 0
-theta = 5
+velocidad_angular = 0
+posicion_angular = 45
 dT = 0.01
 t = 0
 L = 5
 g = -9.81
 
 #funcion
-def sistema_Pendulo_Simple_Comportamiento(theta, v, t):
+def sistema_Pendulo_Simple_Comportamiento(t, posicion_angular, velocidad_angular):
     while(t < 10):
-        thetaA = (g/L)*theta
-        v = v + thetaA*dT
-        plt.plot(t, theta, ".g")
-        theta = theta + v*dT
+        a = (g/L)*posicion_angular 
+        velocidad_angular = velocidad_angular + a*dT
+        plt.plot(t, posicion_angular, ".g")
+        posicion_angular = posicion_angular + velocidad_angular*dT
         t = t + dT
         
 #invocacion        
-sistema_Pendulo_Simple_Comportamiento(theta, v, t)
+sistema_Pendulo_Simple_Comportamiento(t, posicion_angular, velocidad_angular)
 
 #grafica
 plt.show()
